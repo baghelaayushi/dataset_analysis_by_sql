@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./style.css"type="text/css">
+    <meta charset="UTF-8">
+    <title>queries</title>
+    <style>
+        .reveal-if-active {
+          opacity: 0;
+          max-height: 0;
+          overflow: hidden;
+
+        }
+        input[type="radio"]:checked ~ .reveal-if-active {
+          opacity: 1;
+          max-height: 100px; /* little bit of a magic number :( */
+          overflow: visible;
+        }
+        .fixed {
+          position: fixed;
+          right: 100px;
+          top:10px;
+         }
+
+    </style>
+</head>
+<body>
+          <form action = "http://localhost:5000/queries/{{user}}/{{password}}" method = "post">
+          <div>
+              <input type="radio" name="query" value="6"> Explore a database table
+              <div class="reveal-if-active">
+               <p>SELECT the table you wnat to explore</p>
+               <p><select name="t10">
+                   <option value="property_crimes">Crimes done on property</option>
+                   <option value="Violent_crimes">Violent crimes</option>
+                   <option value="MALE_demos">demographics of male population</option>
+                   <option value="FEMALE_demos">demographices of female population</option>
+                   <option value="Non_Hispanic_Demos">demongraphics of non hispanic demos</option>
+                   <option value="Hispanic_Demos">demongraphics of hispanic demos</option>
+               </select>
+              </div>
+          </div><br>
+          <div>
+              <input type="radio" name="query" value="1"> Find the Violent Crime total for a state and county combination.
+              <div class="reveal-if-active">
+                <p>Enter state name<input type = "text" name = "t1" /></p>
+                <p>Enter county name<input type = "text" name = "t2" /></p>
+              </div>
+          </div><br>
+          <div>
+              <input type="radio" name="query" value="2">Find the Property Crime total for a state and county combination.
+              <div class="reveal-if-active">
+                <p>Enter state name<input type = "text" name = "t3" /></p>
+                <p>Enter county name<input type = "text" name = "t4" /></p>
+              </div>
+          </div><br>
+          <div>
+              <input type="radio" name="query" value="3"> Find the Total Crimes for a state.
+              <div class="reveal-if-active">
+               <p>Enter state name<input type = "text" name = "t5"/></p>
+              </div>
+          </div><br>
+          <div>
+              <input type="radio" name="query" value="4">Find the particular Violent Crime type total for your selected state.
+              <div class="reveal-if-active">
+               <p>Enter state name<input type = "text" name = "t6"/></p>
+               <p><select name="t7">
+                   <option value="murder">Murder</option>
+                   <option value="rape_revised">Rape(revised)</option>
+                   <option value="rape_legacy">Rape(legacy)</option>
+                   <option value="robbery">Robbery</option>
+                   <option value="assault">Assault</option>
+               </select>
+              </div>
+          </div><br>
+          <div>
+              <input type="radio" name="query" value="5">Find the state county combinations that have more burglaries that the first given number with a white male only population greater than the second number provided
+              <div class="reveal-if-active">
+                <p>Enter burglary number<input type = "text" name = "t8" /></p>
+                <p>Enter white only male demographics<input type = "text" name = "t9" /></p>
+              </div>
+          </div><br>
+          <div>
+              <input type="radio" name="query" value="7"> Find out which counties of a state have a population of Hispanic Females of two or more races greater than your chosen number?
+              <div class="reveal-if-active">
+                <p>Enter the number<input type = "text" name = "t11" /></p>
+              </div>
+          </div><br>
+           <div>
+              <input type="radio" name="query" value="8"> Find out the sum of non hispanic females and males belonging to two races or more with states that start from a particular alphabet
+              <div class="reveal-if-active">
+                <p>Enter the Alphabet<input type = "text" name = "t12" maxlength="1"/></p>
+              </div>
+          </div><br>
+          <div>
+              <input type="radio" name="query" value="10"> Insert into a violent_crimes table
+              <div class="reveal-if-active">
+                <p>Enter state <input type = "text" name = "t15"/></p>
+                <p>Enter county <input type = "text" name = "t16"/></p>
+                <p>Enter murder <input type = "text" name = "t17"/></p>
+                <p>Enter rape_revised <input type = "text" name = "t18"/></p>
+                <p>Enter rape_legacy <input type = "text" name = "t19"/></p>
+                <p>Enter robbery <input type = "text" name = "t20"/></p>
+                <p>Enter assault <input type = "text" name = "t21"/></p>
+          </div><br>
+            <div>
+              <input type="radio" name="query" value="11"> Update value of murder in violent crimes tables
+              <div class="reveal-if-active">
+                 <p>Enter state<input type = "text" name = "t22"/></p>
+                  <p>Enter county<input type = "text" name = "t23"/></p>
+                  <p>Enter the value<input type = "text" name = "t24"/></p>
+              </div>
+          </div><br>
+             <input type = "submit" value="submit" class = "fixed">
+</body>
+</html>
